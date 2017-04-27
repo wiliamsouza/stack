@@ -22,9 +22,15 @@ variable "vpc_id" {
   default     = ""
 }
 
+variable "zone_id" {
+  description = "The Zone ID (omit to create a new zone)"
+  default     = ""
+}
+
 resource "aws_route53_zone" "main" {
   name    = "${var.name}"
   vpc_id  = "${var.vpc_id}"
+  zone_id = "${var.zone_id}"
   comment = ""
 }
 
